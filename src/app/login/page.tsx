@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Eye, EyeOff, Mail, Lock, UserRound } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, UserRound,  ChevronDown } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -80,15 +80,51 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-100 flex items-center justify-center px-4 py-10">
-      <Card className="w-full max-w-md shadow-2xl rounded-2xl">
+   <main
+  className="
+    relative
+    min-h-screen
+    flex
+    items-center
+    justify-center
+    px-4
+    py-10
+    bg-gradient-to-br
+    from-slate-100
+    via-slate-50
+    to-slate-200
+    overflow-hidden
+  "
+>
+  {/* Background Decoration */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-slate-300/20 blur-3xl" />
+
+    <div className="absolute bottom-0 -right-20 h-80 w-80 rounded-full bg-slate-400/10 blur-3xl" />
+  </div>
+     <Card
+  className="
+    relative
+    z-10
+    w-full
+    max-w-md
+    rounded-3xl
+    border
+    border-slate-200
+    bg-white
+    shadow-xl
+    transition-all
+    duration-300
+    hover:-translate-y-1
+    hover:shadow-2xl
+  "
+>
         <CardContent className="p-8">
 
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-slate-800">
-              Welcome Back
-            </h1>
-
+<h1 className="text-3xl font-bold tracking-tight text-slate-900">
+  Smart Attendance System
+</h1>
             <p className="text-slate-500 mt-2">
               Sign in to continue
             </p>
@@ -107,17 +143,29 @@ export default function LoginPage() {
               <div className="relative">
 
                 <Mail
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                 className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"
                   size={20}
                 />
 
-                <Input
-                  type="email"
-                  placeholder="example@gmail.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10"
-                />
+               <Input
+  type="email"
+  placeholder="example@gmail.com"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  className="
+    pl-10
+    h-12
+    rounded-xl
+    border-slate-300
+    bg-slate-50
+    transition-all
+    duration-300
+    focus:border-slate-700
+    focus:ring-2
+    focus:ring-slate-300
+    hover:border-slate-400
+  "
+/>
 
               </div>
 
@@ -140,24 +188,37 @@ export default function LoginPage() {
               <div className="relative">
 
                 <Lock
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"
                   size={20}
                 />
 
-                <Input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 pr-10"
-                />
+               <Input
+  type={showPassword ? "text" : "password"}
+  placeholder="Enter password"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+  className="
+    pl-10
+    pr-10
+    h-12
+    rounded-xl
+    border-slate-300
+    bg-slate-50
+    transition-all
+    duration-300
+    focus:border-slate-700
+    focus:ring-2
+    focus:ring-slate-300
+    hover:border-slate-400
+  "
+/>
 
                 <button
                   type="button"
                   onClick={() =>
                     setShowPassword(!showPassword)
                   }
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black"
+                 className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-800 transition-colors"
                 >
                   {showPassword ? (
                     <EyeOff size={20} />
@@ -187,20 +248,42 @@ export default function LoginPage() {
 
     <UserRound
       size={20}
-      className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+      className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"
     />
 
-    <select
-      value={role}
-      onChange={(e) => setRole(e.target.value)}
-      className="w-full h-10 rounded-md border border-input bg-background pl-10 pr-4 text-sm outline-none focus:ring-2 focus:ring-blue-500"
-    >
-      <option value="">Select Role</option>
-      <option value="student">Student</option>
-      <option value="teacher">Teacher</option>
-      <option value="admin">Admin</option>
-    </select>
-
+<select
+  value={role}
+  onChange={(e) => setRole(e.target.value)}
+  className="
+    w-full
+    h-12
+    rounded-xl
+    border
+    border-slate-300
+    bg-slate-50
+    pl-10
+    pr-4
+    text-slate-700
+    transition-all
+    duration-300
+    hover:border-slate-400
+    focus:border-slate-700
+    focus:ring-2
+    focus:ring-slate-300
+    outline-none
+    cursor-pointer
+    appearance-none
+  "
+>
+  <option value="">Select Role</option>
+  <option value="student">Student</option>
+  <option value="teacher">Teacher</option>
+  <option value="admin">Administrator</option>
+</select>
+<ChevronDown
+  size={18}
+  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"
+/>
   </div>
 
   {errors.role && (
@@ -212,13 +295,62 @@ export default function LoginPage() {
 
             {/* Login Button */}
 
-            <Button
-              className="w-full h-11"
-              onClick={handleLogin}
-              disabled={loading}
-            >
-              {loading ? "Signing In..." : "Login"}
-            </Button>
+           <Button
+  onClick={handleLogin}
+  disabled={loading}
+  className="
+w-full
+h-12
+rounded-xl
+bg-linear-to-r
+from-slate-700
+via-slate-800
+to-slate-900
+text-white
+font-semibold
+text-base
+shadow-lg
+shadow-slate-900/20
+transition-all
+duration-300
+hover:scale-[1.02]
+hover:shadow-xl
+hover:shadow-slate-900/30
+hover:from-slate-800
+hover:via-slate-900
+hover:to-black
+active:scale-95
+disabled:opacity-70
+disabled:cursor-not-allowed
+"
+>
+  {loading ? (
+    <span className="flex items-center justify-center gap-2">
+      <svg
+        className="h-5 w-5 animate-spin"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <circle
+          className="opacity-20"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        />
+        <path
+          className="opacity-90"
+          fill="currentColor"
+          d="M22 12a10 10 0 00-10-10v4a6 6 0 016 6h4z"
+        />
+      </svg>
+      Signing In...
+    </span>
+  ) : (
+    "Login"
+  )}
+</Button>
 
           </div>
 
