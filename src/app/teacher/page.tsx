@@ -1,0 +1,8 @@
+export default function TeacherPage() {
+  return (
+    <main className="min-h-screen flex flex-col items-center justify-center">
+      <h1 className="text-4xl font-bold">Teacher Dashboard</h1>
+      <p className="mt-2 text-gray-500">Coming Soon </p>
+    </main>
+  );
+}
