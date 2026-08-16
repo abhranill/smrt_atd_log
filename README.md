@@ -1,6 +1,6 @@
 # Smart Attendance Login UI
 
-A modern and responsive login page for the Smart Attendance System.(Another project)
+# A modern and responsive login page for the Smart Attendance System.(Another project)
 
 ## Tech Stack
 
